@@ -1,0 +1,893 @@
+{
+	"info": {
+		"_postman_id": "6dae5084-c4a9-4cdc-bef8-3048954b5c73",
+		"name": "Task Tracker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44763729",
+		"_collection_link": "https://tim122.postman.co/workspace/QA56~d947ae37-a1ec-48e4-a22d-3a77f6191461/collection/44763729-6dae5084-c4a9-4cdc-bef8-3048954b5c73?action=share&source=collection_link&creator=44763729"
+	},
+	"item": [
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Negative",
+					"item": [
+						{
+							"name": "Get all users Negative",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// pm.test(\"Status code is 500\", function () {\r",
+											"//     pm.response.to.have.status(500);\r",
+											"// });\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/users/all",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Get all users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"email\": \"homer@simpsons.com\",\r\n    \"role\": \"ADMIN\",\r\n    \"confirmationStatus\": \"CONFIRMED\"\r\n  }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/users/all",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Project controller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Get all project",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"New Website Development\",\r\n  \"description\": \"A Project to develop a new company website\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/projects",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Projectc",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/projects/{{Authorization}}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										"{{Authorization}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Project",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/projects/{{id}}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Project",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Abb\"\r\n \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/projects",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Negative",
+					"item": [
+						{
+							"name": "Update Project",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Hi\",\r\n  \"description\": \"A Project to develop a new company website\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/projects",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authorization controller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Get new acess token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXNfZGV2QHVwdGVhbXMuZGUiLCJleHAiOjE3NTE1NTU0NTl9.6gLnR1reqSy4apZbrR3PY2RsXhYgBmfcR3Rh5htUPms\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/auth/refresh-token",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"refresh-token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/auth/logout",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"tes_dev@upteams.de\",\r\n  \"password\": \"dev_TR_pass_007\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/auth/login",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Confirm Code",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"email\": \"homer@simpsons.com\",\r\n    \"role\": \"ADMIN\",\r\n    \"confirmationStatus\": \"CONFIRMED\"\r\n  }\r\n]"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/users/confirm/{{id}}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"confirm",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Negative",
+					"item": [
+						{
+							"name": "login with onlu password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n  \"password\": \"dev_TR_pass_007\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/auth/login",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login with  Incorrect email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"test_test@upteams\",\r\n  \"password\": \"dev_TR_pass_007\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/auth/login",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Negative refresh token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"refreshToken\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/v1/auth/refresh-token",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "register-controller-impl",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"t@upteams.de\",\r\n  \"password\": \"dev_TR_pass_007\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/users/register",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Negative",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "Test Auth controller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"t@upteams.de\",\r\n  \"password\": \"dev_TR_pass_007\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/test/auth/role/user",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"auth",
+										"role",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "any",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"t@upteams.de\",\r\n  \"password\": \"dev_TR_pass_007\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/test/auth/role/any",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"auth",
+										"role",
+										"any"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "not annotated",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"t@upteams.de\",\r\n  \"role\": \"ROLE_USER\",\r\n  \"confirmationStatus\": \"UNCONFIRMED\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/test/auth/not-annotated",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"auth",
+										"not-annotated"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "permut all",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"t@upteams.de\",\r\n  \"role\": \"ROLE_USER\",\r\n  \"confirmationStatus\": \"UNCONFIRMED\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/test/auth/permit-all",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"auth",
+										"permit-all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Hi\",\r\n  \"description\": \"A Project to develop a new company website\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/test/auth/role/admin",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"auth",
+										"role",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Negative",
+					"item": [
+						{
+							"name": "admin",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"t@upteams.de\",\r\n  \"role\": \"ROLE_USER\",\r\n  \"confirmationStatus\": \"UNCONFIRMED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v1/test/auth/role/admin",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"test",
+										"auth",
+										"role",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
